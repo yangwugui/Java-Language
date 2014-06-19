@@ -1,3 +1,4 @@
+package ruandao.classmember;
 import java.util.Scanner;
 
 
