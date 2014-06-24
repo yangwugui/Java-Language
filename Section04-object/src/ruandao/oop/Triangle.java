@@ -1,7 +1,9 @@
 package ruandao.oop;
 
 public class Triangle {
-	private String symbol;
+	static double pi = 3.14159265;
+	
+	public String symbol;
 	private int size;
 	private boolean isEmpty;
 	
@@ -40,5 +42,10 @@ public class Triangle {
 			line++;   // line = line + 1;  line += 1;
 		}  // end of while(line<lines)
 		
+	}
+	
+	public double getArea(){
+		double d = Triangle.pi;
+		return d;
 	}
 }

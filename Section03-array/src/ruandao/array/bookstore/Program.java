@@ -53,7 +53,7 @@ public class Program {
 
 	}
 
-	private static void init() {
+	public static void init() {
 		books = new String[MAX_BOOK_AMOUNT];
 		states = new String[MAX_BOOK_AMOUNT];
 		counts = new int[MAX_BOOK_AMOUNT];
@@ -68,7 +68,7 @@ public class Program {
 		states[2] = "可借";
 	}
 
-	private static void guihuan() {
+	public static void guihuan() {
 		System.out.println("== 归还图书 ==");
 		String name = Console.inputLine("请输入要还的图书：");
 		int index = TextArray.getIndex(books, name);
@@ -85,7 +85,7 @@ public class Program {
 		System.out.println("谢谢，欢迎下次再来借书。");
 	}
 
-	private static void borrow() {
+	public static void borrow() {
 		System.out.println("== 借阅图书 ==");
 		String name = Console.inputLine("请输入要借阅的图书：");
 		int index = TextArray.getIndex(books, name);
@@ -105,7 +105,7 @@ public class Program {
 		System.out.println("给你图书，请拿好。");
 	}
 
-	private static void remove() {
+	public static void remove() {
 		System.out.println("== 删除书籍 ==");
 		String name = Console.inputLine("请输入要销毁的图书名称：");
 		int index = TextArray.getIndex(books, name);
@@ -123,7 +123,7 @@ public class Program {
 		System.out.println("图书的相关信息已经销毁。");
 	}
 
-	private static void list() {
+	public static void list() {
 		System.out.println("书名  状态\t 次数\t");
 		for(int i=0; i<MAX_BOOK_AMOUNT; i++){
 			if(books[i]==null) break;
@@ -131,14 +131,14 @@ public class Program {
 		}
 	}
 
-	private static void add() {
+	public static void add() {
 		System.out.println("== 增加图书 ==");
 		String name = Console.inputLine("请输入书名：");
 		TextArray.append(books,name);
 		TextArray.append(states,"可借");
 	}
 
-	private static void showMenu() {
+	public static void showMenu() {
 		System.out.println("1. 新增。");
 		System.out.println("2. 查看。");
 		System.out.println("3. 删除。");

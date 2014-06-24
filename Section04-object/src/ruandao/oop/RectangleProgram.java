@@ -8,11 +8,15 @@ public class RectangleProgram {
 		
 		int area = rect.calculateArea();  // rect.length * rect.width;
 		//int area = Rectangle.calculateArea();
-		//int area2 = staticCalculateArea(rect);
+		// int area2 = staticCalculateArea(rect);
 		
 		// toString: 自述， 自我描述，是对象的可读性显示。
 		System.out.println( rect + " Area is: " + area);
 		System.out.println( rect.toString() + " Area is: " + area);
+	
+		Rectangle r1 = new Rectangle();
+		Rectangle r2 = new Rectangle();
+		
 	}
 	
 //	static int staticCalculateArea(Rectangle rect){

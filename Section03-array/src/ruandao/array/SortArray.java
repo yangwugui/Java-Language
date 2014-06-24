@@ -36,6 +36,8 @@ public class SortArray {
 	public static void sortUp(int[] array){
 		for(int i=0; i<array.length-2; i++){
 			for(int j=array.length-1; j>i; j--){
+				// array[j-1]Ç°
+				// array[j]  ºó
 				if( array[j] < array[j-1] ){
 					int tmp = array[j-1];
 					array[j-1] = array[j];
@@ -44,7 +46,13 @@ public class SortArray {
 			} // inner for
 		} // out for
 		
-	}
+		/*		int a = 10;
+		int b = 20;
+		
+		int tmp;
+		tmp = a;
+		a = b;
+		b = tmp;*/	}
 	
 	public static void sortDown(int[] array){
 		for(int i=array.length-1; i>0; i--){

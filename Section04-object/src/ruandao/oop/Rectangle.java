@@ -19,6 +19,10 @@ public class Rectangle {
 	public void setWidth(int width) {
 		this.width = width;
 	}
+	
+	public Rectangle(){
+		// no code;
+	}
 
 	public Rectangle(int length, int width){
 		this.length = length;

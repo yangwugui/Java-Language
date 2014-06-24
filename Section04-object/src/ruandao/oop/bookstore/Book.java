@@ -44,4 +44,5 @@ public class Book {
 		str += this.state.equals("可借") ? "现在可借。" : "已经借出了。";
 		return str;
 	}
+	
 }
