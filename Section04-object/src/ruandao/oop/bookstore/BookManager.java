@@ -30,7 +30,7 @@ public class BookManager {
 			return "你已经还过这本书了，:)";
 		}
 		books[index].setState ( "已还" );
-		return "";
+		return "谢谢，欢迎下次再来借书。";
 	}
 
 	public String borrow( String name) {
@@ -46,7 +46,7 @@ public class BookManager {
 		books[index].setState( "已借");
 		int count = books[index].getCount();
 		books[index].setCount(count + 1);
-		return "";
+		return "给你图书，请拿好。";
 	}
 
 	public String remove(String name) {
@@ -60,7 +60,7 @@ public class BookManager {
 		}
 		
 		delete(index);
-		return "";
+		return "图书的相关信息已经销毁。";
 	}
 
 	public void delete(int index) {
@@ -96,7 +96,7 @@ public class BookManager {
 			return "货架已经满了，放不下了！";
 		}
 		books[firstNull] = book;
-		return "";
+		return "图书已经成功入库。";
 	}
 
 	

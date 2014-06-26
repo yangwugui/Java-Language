@@ -17,10 +17,16 @@ public class RectangleProgram {
 		Rectangle r1 = new Rectangle();
 		Rectangle r2 = new Rectangle();
 		
+		Rectangle r = getRect();
 	}
 	
 //	static int staticCalculateArea(Rectangle rect){
 //		return rect.length * rect.width;
 //	}
+	
+	public static Rectangle getRect(){
+		Rectangle r1 = new Rectangle();
+		return r1;
+	}
 
 }

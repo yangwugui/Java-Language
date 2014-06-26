@@ -160,6 +160,7 @@ public class Program {
 		book.name = name;
 		book.state = "可借";
 		append(book);
+		System.out.println("图书已经成功入库。");
 	}
 
 	public static void append(Book book) {

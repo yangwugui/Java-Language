@@ -1,8 +1,6 @@
 package ruandao.oop.bookstore;
-import java.util.Scanner;
 
 import ruandao.utility.Console;
-import ruandao.utility.TextArray;
 
 public class Program {
 
@@ -12,65 +10,47 @@ public class Program {
 		
 		bookManager.init();
 		boolean isExit = false;
-		String error = "";
+		String msg = "";
 		String name = "";
 		for(;;){
 			
-			showMenu();
-			
-			Scanner input = new Scanner(System.in);
-			int select = input.nextInt();
+			String[] menu = {"1. 新增。",
+					"2. 查看。",
+					"3. 删除。",
+					"4. 借出。",
+					"5. 归还。",
+					"0. 退出。" };
+			String select = Console.selectMenu(menu);
 			
 			switch(select){
-			case 1:
+			case "1":
 				System.out.println("== 增加图书 ==");
 				name = Console.inputLine("请输入书名：");
-				error =  bookManager.append(new Book(name));
-				if( error.equals("") ){
-					System.out.println("成功！");
-				}
-				else{
-					System.out.println(error);
-				}
-					
+				msg = bookManager.append(new Book(name));
+				System.out.println(msg);
 				break;
-			case 2:
+			case "2":
 				System.out.println( bookManager.list() );
 				break;
-			case 3:
+			case "3":
 				System.out.println("== 删除图书 ==");
 				name = Console.inputLine("请输入书名：");
-				error =  bookManager.remove(name);
-				if( error.equals("") ){
-					System.out.println("成功！");
-				}
-				else{
-					System.out.println(error);
-				}
+				msg =  bookManager.remove(name);
+				System.out.println(msg);
 				break;
-			case 4:
+			case "4":
 				System.out.println("== 借阅图书 ==");
 				name = Console.inputLine("请输入书名：");
-				error =  bookManager.borrow(name);
-				if( error.equals("") ){
-					System.out.println("成功！");
-				}
-				else{
-					System.out.println(error);
-				}
+				msg =  bookManager.borrow(name);
+				System.out.println(msg);
 				break;
-			case 5:
+			case "5":
 				System.out.println("== 归还图书 ==");
 				name = Console.inputLine("请输入书名：");
-				error =  bookManager.guihuan(name);
-				if( error.equals("") ){
-					System.out.println("成功！");
-				}
-				else{
-					System.out.println(error);
-				}
+				msg =  bookManager.guihuan(name);
+				System.out.println(msg);
 				break;
-			case 0:
+			case "0":
 				isExit = true;
 				break;
 				
@@ -83,16 +63,6 @@ public class Program {
 			
 		} // for
 
-	}
-
-	public static void showMenu() {
-		System.out.println("1. 新增。");
-		System.out.println("2. 查看。");
-		System.out.println("3. 删除。");
-		System.out.println("4. 借出。");
-		System.out.println("5. 归还。");
-		System.out.println("0. 退出。");
-		System.out.println("请选择：");
 	}
 
 }
