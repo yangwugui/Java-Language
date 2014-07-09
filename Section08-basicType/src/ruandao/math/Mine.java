@@ -7,7 +7,6 @@ import ruandao.utility.Console;
 public class Mine {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		//1. height, width, count
 		//2. 打印　所有的地雷，每个地雷一行，形式：　（行号，列号）
 		int rows = Console.inputInt("输入行数：");
@@ -46,8 +45,8 @@ public class Mine {
    		Random random = new Random();
         do
         {
-            i = 1+random.nextInt(rows);
-            j = 1+random.nextInt(cols);
+            i = 1 + random.nextInt(rows);
+            j = 1 + random.nextInt(cols);
             if (ceils[i][j] == -1) continue;
             ceils[i][j] = -1;
             count++;

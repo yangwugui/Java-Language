@@ -1,4 +1,4 @@
-package ruandao.date;
+package ruandao.datetime;
 
 import java.util.Calendar;
 import java.util.Date;
