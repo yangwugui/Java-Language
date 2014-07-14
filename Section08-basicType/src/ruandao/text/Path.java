@@ -16,7 +16,7 @@ public class Path {
 	public static String combine(String path1, String path2){
 		String path = path1;
 		if( !path.endsWith("\\") ) path += "\\";
-		if( path.startsWith("\\") ) path2 = path2.substring(1);
+		if( path2.startsWith("\\") ) path2 = path2.substring(1);
 		return path + path2;
 	}
 	

@@ -31,7 +31,10 @@ public class TextParagraph {
 	SortedMap<String, Integer> wordMap = new TreeMap<String,Integer>();
 	SortedMap<Character, Integer> charMap = new TreeMap<Character,Integer>(); 
 	
-	// 返回总的字符数。
+	// 返回总的单词数。
+	// split(" "); "wo ai beijing tiananmen"
+	// split(":"); "wo:ai:beijing:tiananmen"
+	
 	public int wordStatistics(String paragraph){
         String[] words = paragraph.split("[^a-zA-Z]+");  // Split the line into words
         int numWords = 0;
