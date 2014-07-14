@@ -1,0 +1,4 @@
+﻿<users>
+	<user name="admin" password="admin" />
+	<user name="coolman" password="coolman" />
+</users>
