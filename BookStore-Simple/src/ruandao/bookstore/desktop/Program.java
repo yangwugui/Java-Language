@@ -1,24 +1,13 @@
 package ruandao.bookstore.desktop;
 
-import java.io.*;
 import java.math.BigDecimal;
-import java.net.UnknownHostException;
-import java.util.Date;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactoryConfigurationError;
-
-import org.xml.sax.SAXException;
 
 import ruandao.bookstore.Account;
 import ruandao.bookstore.Book;
-import ruandao.bookstore.Order;
-import ruandao.bookstore.OrderDetail;
-import ruandao.bookstore.Type;
+import ruandao.bookstore.PurchasedItem;
 import ruandao.bookstore.server.AccountManager;
 import ruandao.bookstore.server.BookManager;
-import ruandao.bookstore.server.OrderManager;
+import ruandao.bookstore.server.PurchasedItemManager;
 import ruandao.utility.Console;
 
 //客户端类
@@ -32,16 +21,14 @@ public class Program {
 	
     static BookManager bookManager = null; 
     static AccountManager accountManager = null;
-    static OrderManager orderManager = null;
 	
 	// 控制器，负责界面之间的跳转
 	public static void main(String[] args) 
 			throws Exception {
 	    
 		System.out.println("欢迎光临软道书店！");
-		bookManager = BookManager.getInstance();
-		accountManager = AccountManager.getInstance();
-		orderManager = OrderManager.getInstance();
+		bookManager = new BookManager("Data Files/");
+		accountManager = new AccountManager("Data Files/");
 		int view = LOGIN_VIEW;
 		do{
 			switch (view){
@@ -140,7 +127,6 @@ public class Program {
 				
 				book = new Book();
 				book.setISBN(isbn);
-				book.setType(selectBookType(false));
 				book.setTitle(Console.inputLine("请输入图书的标题："));
 				book.setAuthor(Console.inputLine("请输入作者的姓名："));
 				book.setPublisher(Console.inputLine("请输入出版社："));
@@ -169,9 +155,8 @@ public class Program {
 				break;
 				
 			case "6":
-				Type type = selectBookType(true);
 				String search = Console.inputLine("输入要查找的关键字：");
-				listBooks(bookManager.searchBooks(type, search));
+				listBooks(bookManager.searchBooks( search));
 				break;
 				
 			case "7":
@@ -193,18 +178,6 @@ public class Program {
 				return EXIT_PROGRAM;
 			}
 		}//for(;;)
-	}
-
-	// allNull为true时，允许不选择任何类型。
-	private static Type selectBookType(boolean allowNull) {
-		Type[] types = Type.values();
-		for(int i=0; i<types.length; i++){
-			System.out.println((i+1) + ". " + types[i].getTitle() );
-		}
-		System.out.println("0. 不指定类型。");
-		int index = Console.inputInt("",0, types.length );
-		if( index == 0 ) return null;
-		return types[index-1];
 	}
 
 	public static void listBooks(Book[] bookList) {
@@ -233,10 +206,11 @@ public class Program {
 
 	public static int showOrderView(){
 		System.out.println("订单管理");
-		Order currentOrder = orderManager.createOrder(currentUser.getName());
+		
+		PurchasedItemManager purchasedItemManager = new PurchasedItemManager();
 		
 		for(;;){
-			listOrderDetails(currentOrder);
+			showPurchasedItems(purchasedItemManager.getAllItems().values().toArray(new PurchasedItem[0]));
 			String choise = Console.selectMenu(new String[]{
 					"1. 选择一本图书",
 					"2. 修改图书数量",
@@ -245,21 +219,16 @@ public class Program {
 					"0. 退出系统"});
 			switch(choise){
 			case "1":
-				orderManager.select(currentOrder, selectBook());
+				purchasedItemManager.select(selectBook());
 				break;
 				
 			case "2":
 				int number = Console.inputInt("请输入购买的数量：",0,100);
-				orderManager.setAmount(currentOrder, selectBook(), number);
+				purchasedItemManager.setAmount(selectBook(), number);
 				break;
 				
 			case "3":
-				currentOrder.setAddress( Console.inputLine("输入送货地址:",currentUser.getAddress()) );
-				currentOrder.setAddress( Console.inputLine("输入送货地址:",currentUser.getAddress()) );
-				currentOrder.setAddress( Console.inputLine("输入送货地址:",currentUser.getAddress()) );
-				currentOrder.setAddress( Console.inputLine("输入送货地址:",currentUser.getAddress()) );
-				currentOrder.setAddress( Console.inputLine("输入送货地址:",currentUser.getAddress()) );
-				orderManager.confirmOrder(currentOrder);
+				purchasedItemManager = new PurchasedItemManager();
 				return ORDER_VIEW;
 				
 			case "4":
@@ -272,10 +241,10 @@ public class Program {
 		}//for(;;)
 	}
 	
-	private static void listOrderDetails(Order order) {
+	private static void showPurchasedItems(PurchasedItem[] purchasedItems) {
 		System.out.println("isbn  \t单价    \t数量     \t价格");
 		BigDecimal sum = new BigDecimal(0);
-		for( OrderDetail detail : order.getDetails().values()){
+		for( PurchasedItem detail : purchasedItems){
 			System.out.print(detail.getIsbn() );
 			System.out.print("\t" + detail.getUnitPrice() );
 			System.out.print("\t" + detail.getQuantity() );

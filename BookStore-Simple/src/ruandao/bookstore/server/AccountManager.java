@@ -1,18 +1,16 @@
-package ruandao.bookstore;
+package ruandao.bookstore.server;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactoryConfigurationError;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import ruandao.bookstore.Account;
 import ruandao.utility.Xml;
 
 public class AccountManager {
@@ -51,27 +49,6 @@ public class AccountManager {
 		return account;	
 	}
 	
-	public void register(Account account) 
-			throws TransformerFactoryConfigurationError, Exception {
-		if( this.accountMap.containsKey(account.getName()) ){
-			throw new Exception("用户名已经存在，请换一个名字试试。");
-		}
-		
-		if( account.getName().length() < 6 ){
-			throw new Exception("用户名不能少于6个字母。");
-		}
-		
-		if( account.getPassword().length() < 6 ){
-			throw new Exception("密码长度不能少于6个字母。");
-		}
-		
-		// 更新内存中的数据。
-		accountMap.put(account.getName(), account);
-				
-		// 把数据写出到account.xml中。
-		writeToXmlFile();
-	}
-	
 	// 把 xml中的内容全部读出到内存中。
 	private void readFromXml() throws ParserConfigurationException,
 			SAXException, IOException {
@@ -92,26 +69,4 @@ public class AccountManager {
 			accountMap.put(account.getName(), account);
 		}
 	}
-	
-    //把所有的账号信息保存到xml文件中。
-	private void writeToXmlFile()
-			throws TransformerFactoryConfigurationError, TransformerException, 
-			IOException, ParserConfigurationException, SAXException {
-		Document doc = Xml.newDocument(); 
-		Element root = doc.createElement("accounts");
-		doc.appendChild(root);
-		for( Account account : accountMap.values()){
-			Element bookNode = doc.createElement("account");
-			bookNode.setAttribute("address", account.getAddress());
-			bookNode.setAttribute("alias", account.getAlias());
-			bookNode.setAttribute("email", account.getEmail());
-			bookNode.setAttribute("isAdmin", ""+account.getIsAdmin());
-			bookNode.setAttribute("name", account.getName());
-			bookNode.setAttribute("password", account.getPassword());
-			bookNode.setAttribute("phone", account.getPhone());
-		}
-		
-		Xml.saveDocument(doc, this.getAccountXmlFile());
-	}
-
 }

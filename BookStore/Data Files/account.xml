@@ -1,0 +1,4 @@
+﻿<accounts>
+	<account name="admin" password="admin123" phone="139888888" isAdmin="true" email="admin@email.com" alias="唐僧" address="西安大雁塔" />
+	<account name="monkey" password="monkey123" phone="181999999" isAdmin="false" email="monkey@email.com" alias="孙悟空" address="广州花果山" />
+</accounts>

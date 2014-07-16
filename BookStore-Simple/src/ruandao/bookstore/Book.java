@@ -10,14 +10,6 @@ public class Book  implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Type type;
-	public Type getType() {
-		return type;
-	}
-	public void setType(Type type) {
-		this.type = type;
-	}
-	
 	private String title;
 	public String getTitle() {
 		return title;

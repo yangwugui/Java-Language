@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<books>
+<book ISBN="888-7-2013-1" amount="20" author="杨无鬼" coverImage="888-7-2013-1.jpg" price="99.0" publisher="软道培训免费电子书" releaseDate="2013-06-01" title="使用Titanium开发Android应用" type="ANDROID">
+		想用javascript编写移动应用吗？Titanium让你梦想成真，使用你熟悉的网页脚本语言就能开发Android和iphone的移动应用。
+	</book>
+<book ISBN="888-7-2013-5" amount="20" author="杨无鬼" coverImage="javascript.jpg" price="99.0" publisher="软道培训出版社" releaseDate="2013-06-01" title="JavaScript教程" type="JAVA">
+		这本JavaScript书籍非常棒，值得推荐！
+	</book>
+<book ISBN="888-7-2013-4" amount="20" author="杨无鬼" coverImage="javascript.jpg" price="99.0" publisher="软道培训出版社" releaseDate="2013-06-01" title="JavaScript教程" type="PHP">
+		这本JavaScript书籍非常棒，值得推荐！
+	</book>
+<book ISBN="888-7-2013-3" amount="20" author="杨无鬼" coverImage="888-7-2013-3.jpg" price="99.0" publisher="软道培训免费电子书" releaseDate="2013-06-01" title="HTML5图形图像技术" type="HTML5">
+		体验Canvas的神奇力量，让网页表现丰富多彩画面。
+	</book>
+<book ISBN="888-7-2013-2" amount="20" author="杨无鬼" coverImage="888-7-2013-2.jpg" price="99.0" publisher="软道培训免费电子书" releaseDate="2013-06-01" title="Asp.Net MVC4" type="DOTNET">
+		使用Asp.Net MVC，获得超乎寻常的快速构建Web应用的能力，高度智能的Razor模板引擎会让你爱不释手，WebApi等和ajax无缝结合的SOA技术让你构建复杂交互的应用。
+	</book>
+</books>

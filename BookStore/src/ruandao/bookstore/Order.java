@@ -3,6 +3,8 @@ package ruandao.bookstore;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Order {
 	private String code;
@@ -15,10 +17,10 @@ public class Order {
 	private Date orderDate;
 	private BigDecimal totalPrice;
 	
-	private ArrayList<OrderDetail> details;
-	public ArrayList<OrderDetail> getDetails(){
+	private Map<String,OrderDetail> details;
+	public Map<String,OrderDetail> getDetails(){
 		if( this.details==null ){
-			this.details = new ArrayList<OrderDetail>();
+			this.details = new HashMap<String,OrderDetail>();
 		}
 		return this.details;
 	}
@@ -26,7 +28,7 @@ public class Order {
 	public String getCode() {
 		return code;
 	}
-	public void setId(String code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 	public String getAccount() {

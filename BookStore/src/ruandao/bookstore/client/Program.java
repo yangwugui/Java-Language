@@ -10,6 +10,9 @@ import javax.xml.transform.TransformerException;
 import org.xml.sax.SAXException;
 
 import ruandao.bookstore.*;
+import ruandao.bookstore.server.AccountManager;
+import ruandao.bookstore.server.BookManager;
+import ruandao.bookstore.server.OrderManager;
 import ruandao.utility.Console;
 
 public class Program {

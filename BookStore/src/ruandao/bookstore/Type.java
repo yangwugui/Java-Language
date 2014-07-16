@@ -1,7 +1,5 @@
 package ruandao.bookstore;
 
-import java.util.ArrayList;
-
 public enum Type {
 	JAVA(1,"Java"), 
 	DOTNET(2,".Net"),
@@ -11,15 +9,13 @@ public enum Type {
 	
 	private int id;
 	private String title;
+	
+	public String getTitle(){
+		return this.title;
+	}
 
 	private Type(int id, String title){
 		this.id = id;
 		this.title = title;
-	}
-	
-	public ArrayList<Book> getBooks(){
-		ArrayList<Book> books = new ArrayList<Book>();
-		
-		return books;
 	}
 }
