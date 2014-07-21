@@ -1,6 +1,5 @@
-package ruandao.io.library;
+package ruandao.socket.library;
 
-import ruandao.io.*;
 import ruandao.utility.Console;
 
 public class Program {
@@ -8,21 +7,7 @@ public class Program {
 	static BookManager bookManager = null;
 	
 	public static void main(String[] args) {
-		String selected = Console.selectMenu(
-				new String[]{"1. 运行使用文本文件的版本。",
-						"2. 运行使用对象序列化保存的版本。",
-						"3. 运行使用Xml文件的版本。"});
-		
-		switch( selected){
-		case "1":
-			bookManager = new BookTextManager();
-			break;
-		case "2":
-			bookManager = new BookObjectManager();
-			break;
-		case "3":
-			bookManager = new BookXmlManager();
-		}
+		bookManager = new BookXmlManager();
 		
 		boolean isExit = false;
 		String person = "";

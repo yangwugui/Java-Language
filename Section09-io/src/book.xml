@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<books>
+	<book isbn="888-7-2014-001" title="Aspx开发技术">
+	这是一本好书。
+	</book>
+	<book isbn="888-7-2014-002" title="用Html5开发手机游戏">
+	游戏开发的入门教材，值得一看。
+	</book>
+</books>

@@ -9,7 +9,7 @@ public class ReaderDemo {
 
 	public static void main(String[] args)
 			throws FileNotFoundException,IOException {
-		FileReader fr = new FileReader("Z:\\Coolman\\Desktop\\xxx\\hello.txt");
+		FileReader fr = new FileReader("Data Files/hello.txt");
 		
 		BufferedReader br = new BufferedReader(fr);
 		//BufferedReader br = new BufferedReader(

@@ -1,3 +1,5 @@
+package ruandao.excel;
+
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,7 +18,11 @@ import org.apache.poi.ss.usermodel.Workbook;
 public class HelloDemo {
 
 	public static void main(String[] args) throws IOException {
+		
+		// HSSFWorkbook：下面的代码用于生成xls文件。
 		Workbook wb = new HSSFWorkbook();
+		
+		// XSSFWorkbook：改用下面的代码及可以生成xlsx的文件
 	    //Workbook wb = new XSSFWorkbook();
 	    CreationHelper createHelper = wb.getCreationHelper();
 	    Sheet sheet = wb.createSheet("new sheet");
@@ -45,7 +51,7 @@ public class HelloDemo {
 	    cell.setCellStyle(cellStyle);
 
 	    // Write the output to a file
-	    FileOutputStream fileOut = new FileOutputStream("workbook.xls");
+	    FileOutputStream fileOut = new FileOutputStream("src/workbook.xls");
 	    wb.write(fileOut);
 	    fileOut.close();
 	}

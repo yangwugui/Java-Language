@@ -1,0 +1,12 @@
+[Book]
+name=Struts 入门
+amount=10
+count=0
+[Book]
+name=Asp.net 入门
+amount=10
+count=0
+[Book]
+name=Java 入门
+amount=10
+count=0

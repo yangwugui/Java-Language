@@ -1,9 +1,11 @@
-package ruandao.datetime.library;
+package ruandao.socket.library;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Borrow {
+public class Borrow implements Serializable {
 	String person;
+	Book book;
 	Date start;
 	
 	public String getPerson() {
@@ -11,6 +13,12 @@ public class Borrow {
 	}
 	public void setPerson(String person) {
 		this.person = person;
+	}
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
 	}
 	public Date getStart() {
 		return start;

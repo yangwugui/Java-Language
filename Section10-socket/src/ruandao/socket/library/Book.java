@@ -1,4 +1,4 @@
-package ruandao.io;
+package ruandao.socket.library;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<books>
+<book amount="10" count="0" name="Asp.Net入门"/>
+<book amount="10" count="0" name="Java入门"/>
+<book amount="8" count="2" name="Struts入门">
+<borrow person="Coolman" start="2014-07-20"/>
+<borrow person="Monkey" start="2014-07-20"/>
+</book>
+</books>

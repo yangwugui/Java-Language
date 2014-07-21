@@ -8,7 +8,7 @@ public class WriterDemo {
 
 	public static void main(String[] args) 
 			throws IOException {
-		FileWriter fw = new FileWriter("Z:\\Coolman\\Desktop\\xxx\\out.txt");
+		FileWriter fw = new FileWriter("Data Files/out.txt");
 		BufferedWriter bw = new BufferedWriter(fw);
 		
 		bw.write("´ºÃß²»¾õÏþ£¬\r\n");

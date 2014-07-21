@@ -27,13 +27,12 @@ public class Borrow implements Serializable {
 		this.start = start;
 	}
 	
-	public Borrow(String person, Book book){
-		this(person, book, new Date() );
+	public Borrow(String person){
+		this(person, new Date() );
 	}
 	
-	public Borrow(String person, Book book, Date start){
+	public Borrow(String person, Date start){
 		this.person = person;
-		this.book = book;
 		this.start = start;
 	}
 }

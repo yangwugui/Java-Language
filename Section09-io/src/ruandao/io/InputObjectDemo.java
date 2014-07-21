@@ -7,7 +7,7 @@ public class InputObjectDemo {
 
 	public static void main(String[] args) 
 			throws IOException, ClassNotFoundException {
-		FileInputStream fis = new FileInputStream("d:\\books.dat");
+		FileInputStream fis = new FileInputStream("Data Files/books.dat");
 		ObjectInputStream ois = new ObjectInputStream(fis);
 
 		ArrayList<Book> books;

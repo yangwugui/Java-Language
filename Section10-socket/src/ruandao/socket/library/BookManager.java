@@ -1,28 +1,16 @@
-package ruandao.datetime.library;
+package ruandao.socket.library;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
 
-public class BookMapManager implements BookManager {
-	private HashMap<String,Book> books;
+public abstract class BookManager {
+
+	protected HashMap<String,Book> books;
 	
-	public BookMapManager() {
+	public BookManager() {
 		books = new HashMap<String,Book>();
-		init();
 	}
 	
-	/* (non-Javadoc)
-	 * @see ruandao.collection.bookstore.BookManager#init()
-	 */
-	private void init() {
-		add( new Book( "Asp.net 入门") );
-		add( new Book("Java 入门") );
-		add( new Book("Struts 入门") );
-	}
-	
-	/* (non-Javadoc)
-	 * @see ruandao.collection.bookstore.BookManager#guihuan(java.lang.String)
-	 */
-	@Override
 	public int guihuan(String person, String bookName) throws Exception {
 		Book book = books.get(bookName);
 		if( book == null || !book.getBorrows().containsKey(person)){
@@ -38,7 +26,6 @@ public class BookMapManager implements BookManager {
 		return days;
 	}
 
-	@Override
 	public void borrow(String person, String bookName) throws Exception {
 		Book book = books.get(bookName);
 		if( book == null){
@@ -55,10 +42,6 @@ public class BookMapManager implements BookManager {
 		book.getBorrows().put(person, new Borrow(person));
 	}
 
-	/* (non-Javadoc)
-	 * @see ruandao.collection.bookstore.BookManager#remove(java.lang.String)
-	 */
-	@Override
 	public void remove(String name) throws Exception {
 		Book book = books.get(name);
 		if( book==null){
@@ -77,26 +60,15 @@ public class BookMapManager implements BookManager {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see ruandao.collection.bookstore.BookManager#list()
-	 */
-	@Override
-	public String list() {
-		String displayString = "";
-		int i = 1;
-		for(Book book : books.values()){
-			displayString += i + ". " + book  + "\n";
-			i++;
-		}
-		return displayString;
-	}
-
-	/* (non-Javadoc)
-	 * @see ruandao.collection.bookstore.BookManager#append(ruandao.collection.bookstore.Book)
-	 */
-	@Override
 	public void add(Book book) {
 		books.put(book.getName(), book);
 	}
+
+	public Book[] getAllBooks() {
+		return this.books.values().toArray(new Book[0]);
+	}
+
+	public abstract void save(String name) throws Exception;
 	
+	public abstract void open(String filename) throws Exception;
 }
