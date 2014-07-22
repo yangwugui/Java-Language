@@ -68,4 +68,4 @@ public class BookXmlManager extends BookManager {
 		}
 	} // method
 
-}
+}  
