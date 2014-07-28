@@ -28,7 +28,7 @@ public class TcpServer  {
 				
 			//µÇÂ½
 			if("Login".equals(request.getAction())){
-				Object[] parameter = request.getParameter();
+				Object[] parameter = request.getParameters();
 				String name = parameter[0].toString();
 				String password = parameter[1].toString();
 				Boolean result = false;
@@ -41,7 +41,7 @@ public class TcpServer  {
 			
 			//Çó½×³Ë
 			if("Factorial".equals(request.getAction())){
-				Object[] parameter = request.getParameter();
+				Object[] parameter = request.getParameters();
 				int x = Integer.parseInt( parameter[0].toString() );
 
 				int result = 1;

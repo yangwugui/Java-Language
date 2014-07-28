@@ -25,7 +25,7 @@ import java.net.Socket;
 			throws Exception{
 		TcpRequest request = new TcpRequest();
 		request.setAction("Login");
-		request.setParameter(new String[]{name,password});
+		request.setParameters(new String[]{name,password});
 		return (Boolean)doRequest(request);
 	}
 	//½×³Ë·½·¨
@@ -33,7 +33,7 @@ import java.net.Socket;
 			throws Exception, ClassNotFoundException{
 		TcpRequest request = new TcpRequest();
 		request.setAction("Factorial");
-		request.setParameter(new Integer[]{x});
+		request.setParameters(new Integer[]{x});
 
 		return (Integer)doRequest(request);
 	}

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class TcpRequest  implements Serializable {
 	String action;
-	Object[] parameter;
+	Object[] parameters;
 	
 	public String getAction() {
 		return action;
@@ -12,10 +12,10 @@ public class TcpRequest  implements Serializable {
 	public void setAction(String action) {
 		this.action = action;
 	}
-	public Object[] getParameter() {
-		return parameter;
+	public Object[] getParameters() {
+		return parameters;
 	}
-	public void setParameter(Object[] parameter) {
-		this.parameter = parameter;
+	public void setParameters(Object[] parameters) {
+		this.parameters = parameters;
 	}
 }
